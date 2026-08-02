@@ -142,7 +142,7 @@ function ManageUser() {
 
     const updateUser = (s, _id) => {
 
-        if (s == "verify") {
+        if (s === "verify") {
 
             axios.patch(apiurluser + "update?_id=" + _id, { status: 1 })
                 .then(() => {
@@ -150,7 +150,7 @@ function ManageUser() {
                 });
 
         }
-        else if (s == "block") {
+        else if (s === "block") {
 
             axios.patch(apiurluser + "update?_id=" + _id, { status: 0 })
                 .then(() => {
@@ -229,7 +229,7 @@ function ManageUser() {
                                                         <td>
 
                                                             {
-                                                                row.status == 0 ?
+                                                                row.status === 0 ?
 
                                                                     <span
                                                                         className="status verify"

@@ -26,13 +26,13 @@ function Login() {
             localStorage.setItem("info",userDetail.info);
             localStorage.setItem("gender",userDetail.gender);
 
-            if(userDetail.role=="admin"){
+            if(userDetail.role==="admin"){
                 navigate("/admin")
             }
-            else if(userDetail.role=="student"){
+            else if(userDetail.role==="student"){
                 navigate("/student")
             }
-            else if(userDetail.role=="instructor"){
+            else if(userDetail.role==="instructor"){
                 navigate("/instructor")
 
             }

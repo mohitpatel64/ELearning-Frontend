@@ -234,7 +234,7 @@ function MyCourse() {
 
     useEffect(() => {
         fetchCourses();
-    }, []);
+    }, [fetchCourses]);
 
     //delete course
 

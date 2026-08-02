@@ -1,5 +1,5 @@
 import './AddCourse.css';
-import { useState ,useEffect } from 'react';
+import { useState } from 'react';
 import {apiurlcourse} from '../../ApiUrl';
 import axios from 'axios';
 

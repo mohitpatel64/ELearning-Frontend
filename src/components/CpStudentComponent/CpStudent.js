@@ -19,14 +19,14 @@ function CpStudent() {
         }
         // step1 : old password match
         axios.get(apiurluser+"fetch?email="+localStorage.getItem('email')+"&password="+opass).then((res)=>{
-            if(res.data.user.length==0){
+            if(res.data.user.length===0){
                 setOutput("Old password is incorrect")
                 setMsg("danger");
                 return;
             }
 
             // step2 : new password and confirm password match
-            if(npass!=cnpass){
+            if(npass!==cnpass){
                 setOutput("New password and confirm password do not match ");
                 setMsg("danger");
                 setNpass('');

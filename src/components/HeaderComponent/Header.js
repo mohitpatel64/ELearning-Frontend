@@ -1,5 +1,8 @@
 import './Header.css';
 import { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
+
+
 function Header() {
 
   const [role, setRole] = useState(localStorage.getItem('role'));
@@ -25,10 +28,10 @@ function Header() {
             </div>
             <div class="col-lg-4 col-md-4">
               <ul class="social-links">
-                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="https://x.com/minthu" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><Link to='/'><i class="fab fa-facebook"></i></Link></li>
+                <li><Link to="/"><i class="fab fa-twitter"></i></Link></li>
+                <li><Link to='/'><i class="fab fa-linkedin"></i></Link></li>
+                <li><Link to='/'><i class="fab fa-instagram"></i></Link></li>
               </ul>
             </div>
           </div>

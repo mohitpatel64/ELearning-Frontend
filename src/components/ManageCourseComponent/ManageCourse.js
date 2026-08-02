@@ -32,7 +32,7 @@ function ManageCourse() {
             });
         }
 
-        else if(s=="reject"){
+        else if(s==="reject"){
 
             axios.patch(apiurlcourse + "update/" + _id,{"courseStatus": "pending",}).then((res) => {
                 setOutput("Status Rejected Successfully");
@@ -98,7 +98,7 @@ function ManageCourse() {
                                                             
                                                             <td>
                                                                 {
-                                                                     row.courseStatus=="pending"?<a style={{color:"green"}} onClick={() => 
+                                                                     row.courseStatus==="pending"?<a style={{color:"green"}} onClick={() => 
                                                                         {updateCourse("approved", row._id)}}
                                                                         >Approve</a>:<a style={{color:"red"}} onClick={() => 
                                                                         {updateCourse("reject", row._id)}}>Reject</a>

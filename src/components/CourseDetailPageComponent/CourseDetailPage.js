@@ -17,7 +17,7 @@ function CourseDetailPage() {
   useEffect(() => {
     axios.get("http://localhost:3001/course/fetch")
       .then((res) => {
-        const found = res.data.courseDetail.find(c => c._id == id);
+        const found = res.data.courseDetail.find(c => c._id === id);
         setCourse(found);
       });
   }, [id]);

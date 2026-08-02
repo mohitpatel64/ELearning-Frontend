@@ -16,7 +16,6 @@ function UpdateCourse() {
     const [description, setDescription] = useState("");
     const [thumbnail, setThumbnail] = useState(null);
     const [thumbnailName, setThumbnailName] = useState("");
-    const [pdf, setPdf] = useState(null);
 
     const fetchCourse = async () => {
         try {

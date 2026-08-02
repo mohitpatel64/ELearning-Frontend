@@ -40,7 +40,7 @@ function CourseContent() {
 
     useEffect(() => {
         fetchCourse();
-    }, []);
+    }, [fetchCourse]);
 
 
 

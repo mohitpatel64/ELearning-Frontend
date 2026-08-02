@@ -1,12 +1,11 @@
 import './StudentLearn.css';
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams} from "react-router-dom";
 import axios from "axios";
-import { apiurlcourse, apiurluser } from '../../ApiUrl';
+import { apiurlcourse } from '../../ApiUrl';
 import StudentQuiz from '../StudentQuizComponent/StudentQuiz';
 function StudentLearn() {
 
-  const navigate = useNavigate();
   const { id } = useParams();
   const [p, setP] = useState(false);
   const [course, setCourse] = useState(null);

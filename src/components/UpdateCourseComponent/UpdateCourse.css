@@ -1,0 +1,84 @@
+.update-box{
+    background:#fff;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,.08);
+}
+
+.update-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.update-title h1{
+    color:#20c05c;
+    font-size:45px;
+    font-weight:bold;
+}
+
+.course-image{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #22c55e;
+}
+
+.no-image{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#ddd;
+    font-size:22px;
+}
+
+.thumb-box{
+    position:relative;
+    display:inline-block;
+}
+
+.thumb-edit-btn{
+    position:absolute;
+    bottom:8px;
+    right:8px;
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:50%;
+    background:#22c55e;
+    color:#fff;
+    cursor:pointer;
+    font-size:18px;
+}
+
+label{
+    font-size:24px;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.form-control{
+    height:55px;
+    font-size:20px;
+}
+
+textarea.form-control{
+    height:160px;
+    resize:none;
+}
+
+
+.course-action-btns{
+    display:flex;
+    gap:15px;
+    margin-top:50px;
+}
+
+.course-action-btns button{
+    flex:1;
+    height:50px;
+    font-size:18px;
+    font-weight:600;
+}

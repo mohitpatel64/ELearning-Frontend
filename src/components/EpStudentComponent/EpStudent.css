@@ -1,0 +1,63 @@
+#manage-section{
+    min-height: 25vh;
+    padding-top: 10px;
+}
+
+#manage-section .section-heading{
+    background: #f1f2f3;
+    padding: 65px;
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    margin-bottom: 0;
+}
+.container #epadmin-part{
+    /* background-color: #F8FAFC; */
+    padding-top: 20px;
+}
+.epadmin-title{
+    font-size: 50px;
+    color: #f35525;
+    font-weight: 700;
+}
+
+.epadmin-subtitle{
+    color: #666;
+    margin-bottom: 30px;
+}
+.epadmin-btn{
+    background: #f35525;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 18px;
+}
+.epadmin-btn:hover{
+    background: #1e1e1e;
+}
+.btn-outline-warning,
+.btn-danger{
+    border-radius:30px;
+    padding:8px 18px;
+    font-weight:600;
+    transition:.3s;
+}
+.btn-outline-warning:hover{
+    background:#f35525;
+    color:#fff;
+}
+.form-control:disabled{
+    background:#f8f9fa;
+    color:#212529;
+    opacity:1;
+    cursor:not-allowed;
+}
+
+
+
+
+.epadmin-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}

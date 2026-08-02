@@ -1,0 +1,35 @@
+.container #register-part{
+    background: #f1f2f3;
+    border-radius: 30px;
+    box-shadow: 0 0 20px rgba(0,0,0,1);
+    padding-top: 20px;
+}
+.register-title{
+    color: #f35525;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.register-subtitle{
+    color: #666;
+    margin-bottom: 30px;
+}
+.register-btn{
+    background: #f35525;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 18px;
+}
+
+.register-btn:hover{
+    background: #1e1e1e;
+}
+.gender-group{
+    margin: 20px 0;
+}
+
+.gender-group label{
+    margin-right: 20px;
+}

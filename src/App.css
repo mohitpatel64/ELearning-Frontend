@@ -1,0 +1,10 @@
+#container{
+    height: 720px;
+    /* background-color: red; */
+}
+
+#content{
+    height: 58%;
+    /* background-color: green; */
+    display: flex;
+}

@@ -1,0 +1,37 @@
+#manage-section{
+    min-height: 25vh;
+    padding-top: 10px;
+}
+
+#manage-section .section-heading{
+    background: #f1f2f3;
+    padding: 65px;
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    margin-bottom: 0;
+}
+.container #cpadmin-part{
+    /* background-color: #F8FAFC; */
+    padding-top: 20px;
+}
+.cpadmin-title{
+    font-size: 50px;
+    color: #f35525;
+    font-weight: 700;
+}
+
+.cpadmin-subtitle{
+    color: #666;
+    margin-bottom: 30px;
+}
+.cpadmin-btn{
+    background: #f35525;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 18px;
+}
+.cpadmin-btn:hover{
+    background: #1e1e1e;
+}

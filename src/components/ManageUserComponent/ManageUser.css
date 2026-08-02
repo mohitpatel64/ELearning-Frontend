@@ -1,0 +1,49 @@
+.manage-table thead th{
+    background:#f35525 !important;
+    color:#fff !important;
+    text-align:center;
+    vertical-align:middle;
+}
+
+.manage-table td{
+    text-align:center;
+    vertical-align:middle;
+}
+
+.manage-table tbody tr:hover{
+    background:#fff5f2;
+    transition:.3s;
+}
+
+.manage-table td:nth-child(3){
+    min-width:220px;
+}
+
+.manage-table td:nth-child(8){
+    min-width:220px;
+    font-size:14px;
+}
+
+.status{
+    cursor:pointer;
+    font-weight:600;
+}
+
+.verify{
+    color:green;
+}
+
+.block{
+    color:orange;
+}
+
+.delete-btn{
+    color:red;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.delete-btn:hover,
+.status:hover{
+    text-decoration:underline;
+}

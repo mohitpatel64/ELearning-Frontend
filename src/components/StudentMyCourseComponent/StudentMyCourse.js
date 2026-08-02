@@ -16,7 +16,7 @@ function StudentMyCourse() {
 
     const fetchCourses = async () => {
         try{
-            const res = await axios.get(`http://localhost:3001/enrollment/mycourses?userId=${userId}`);
+            const res = await axios.get(`https://elearning-backend-vh3u.onrender.com/enrollment/mycourses?userId=${userId}`);
             // console.log(res.data);
            setCourses(res.data);
         } catch(err){
@@ -41,7 +41,7 @@ function StudentMyCourse() {
 
                 {/* IMAGE */}
                 <img
-                  src={`http://localhost:3001/assets/uploads/${item.courseId?.thumbnail}`}
+                  src={`https://elearning-backend-vh3u.onrender.com/assets/uploads/${item.courseId?.thumbnail}`}
                   alt="course"
                   className="img-fluid mb-2"
                   style={{ height: "120px", objectFit: "cover" }}
@@ -69,7 +69,7 @@ function StudentMyCourse() {
 
               {/* PDF BUTTON */}
               <a
-                href={`http://localhost:3001/assets/uploads/${item.courseId?.syllabusPdf}`}
+                href={`https://elearning-backend-vh3u.onrender.com/assets/uploads/${item.courseId?.syllabusPdf}`}
                 target="_blank"
                 className="btn btn-outline-primary mb-2"
               >

@@ -51,7 +51,7 @@
 //         formData.append("pdf", pdf);
 
 //         await axios.post(
-//             "http://localhost:3001/course/upload-pdf", formData
+//             "https://elearning-backend-vh3u.onrender.com/course/upload-pdf", formData
 
 //         );
 //         alert("Syllabus PDF Uploaded ");

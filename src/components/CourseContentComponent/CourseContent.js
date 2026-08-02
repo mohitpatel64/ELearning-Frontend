@@ -49,7 +49,7 @@ function CourseContent() {
         try {
 
             await axios.post(
-                "http://localhost:3001/course/delete-video",
+                "https://elearning-backend-vh3u.onrender.com/course/delete-video",
                 {
                     courseId: id,
                     moduleIndex,
@@ -74,7 +74,7 @@ function CourseContent() {
         try {
 
             await axios.post(
-                "http://localhost:3001/course/delete-module",
+                "https://elearning-backend-vh3u.onrender.com/course/delete-module",
                 {
                     courseId: id,
                     moduleIndex
@@ -113,7 +113,7 @@ function CourseContent() {
 
             const res = await axios.post(
 
-                "http://localhost:3001/course/update-video",
+                "https://elearning-backend-vh3u.onrender.com/course/update-video",
 
                 formData,
 
@@ -154,7 +154,7 @@ function CourseContent() {
         try {
 
             await axios.post(
-                "http://localhost:3001/course/update-module",
+                "https://elearning-backend-vh3u.onrender.com/course/update-module",
                 {
                     courseId: id,
                     moduleIndex: selectedModuleIndex,

@@ -46,7 +46,7 @@ function StudentLearn() {
     const getProgress = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3001/course/prdata",
+          "https://elearning-backend-vh3u.onrender.com/course/prdata",
           {
             params: {
               courseId: id,
@@ -71,7 +71,7 @@ function StudentLearn() {
     const getCourse = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3001/course/${id}`
+          `https://elearning-backend-vh3u.onrender.com/course/${id}`
         );
 
         setCourse(res.data);
@@ -93,7 +93,7 @@ function StudentLearn() {
           try {
 
             const last = await axios.get(
-              "http://localhost:3001/course/lastvideo",
+              "https://elearning-backend-vh3u.onrender.com/course/lastvideo",
               {
                 params: {
                   courseId: id,
@@ -172,7 +172,7 @@ function StudentLearn() {
     try {
 
       await axios.post(
-        "http://localhost:3001/course/lastvideo",
+        "https://elearning-backend-vh3u.onrender.com/course/lastvideo",
         {
           courseId: id,
           studentId: localStorage.getItem("_id"),
@@ -255,7 +255,7 @@ function StudentLearn() {
       };
 
       await axios.post(
-        "http://localhost:3001/course/progress",
+        "https://elearning-backend-vh3u.onrender.com/course/progress",
         data
       );
 
@@ -463,7 +463,7 @@ course.syllabus?.map((module, i) => (
                         <div className="card-body">
 
                           <video
-                            src={`http://localhost:3001/assets/uploads/${currentVideo}`}
+                            src={`https://elearning-backend-vh3u.onrender.com/assets/uploads/${currentVideo}`}
                             controls
                             className="video-player"
                             onEnded={handleEnded}

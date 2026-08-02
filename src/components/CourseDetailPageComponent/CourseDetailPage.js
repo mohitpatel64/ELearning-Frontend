@@ -12,10 +12,10 @@ function CourseDetailPage() {
   const [course, setCourse] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false); // ADD
 
-  const SERVER_URL = "http://localhost:3001/assets/uploads/";
+  const SERVER_URL = "https://elearning-backend-vh3u.onrender.com/assets/uploads/";
 
   useEffect(() => {
-    axios.get("http://localhost:3001/course/fetch")
+    axios.get("https://elearning-backend-vh3u.onrender.com/course/fetch")
       .then((res) => {
         const found = res.data.courseDetail.find(c => c._id === id);
         setCourse(found);
@@ -32,7 +32,7 @@ function CourseDetailPage() {
     const userId = localStorage.getItem("_id");
 
     const { data: order } = await axios.post(
-      "http://localhost:3001/enrollment/create-order",
+      "https://elearning-backend-vh3u.onrender.com/enrollment/create-order",
       { amount: course.price }
     );
     
@@ -51,7 +51,7 @@ function CourseDetailPage() {
             console.log("Payment Response", response);
     
             const res = await axios.post(
-                "http://localhost:3001/enrollment/verify-payment",
+                "https://elearning-backend-vh3u.onrender.com/enrollment/verify-payment",
                 {
                     ...response,
                     userId,
@@ -76,7 +76,7 @@ function CourseDetailPage() {
 
           try {
             await axios.post(
-              "http://localhost:3001/enrollment/verify-payment",
+              "https://elearning-backend-vh3u.onrender.com/enrollment/verify-payment",
               {
                 razorpay_payment_id: "demo_payment",
                 razorpay_order_id: order.id,
@@ -106,7 +106,7 @@ function CourseDetailPage() {
 
       try {
         await axios.post(
-          "http://localhost:3001/enrollment/verify-payment",
+          "https://elearning-backend-vh3u.onrender.com/enrollment/verify-payment",
           {
             razorpay_payment_id: "demo_payment",
             razorpay_order_id: order.id,

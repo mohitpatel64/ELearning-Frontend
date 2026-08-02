@@ -14,7 +14,7 @@ function CourseEditor() {
 
   //Add Module
   const handleAddModule = async()=>{
-    await axios.post("http://localhost:3001/course/add-module",{
+    await axios.post("https://elearning-backend-vh3u.onrender.com/course/add-module",{
       courseId:id,title:moduleTitle});
 
       alert("Module Added");
@@ -31,7 +31,7 @@ function CourseEditor() {
     formData.append("video",videoFile);
 
     await axios.post(
-      "http://localhost:3001/course/add-video",
+      "https://elearning-backend-vh3u.onrender.com/course/add-video",
       formData
     );
     alert("Video Added");

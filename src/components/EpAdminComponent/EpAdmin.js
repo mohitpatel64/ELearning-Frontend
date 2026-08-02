@@ -28,7 +28,7 @@
 //             setCity(res.data.user[0].city);
 //             setGender(res.data.user[0].gender);
 //             if (res.data.user[0].profilePic) {
-//                 setPreview("http://localhost:3001/assets/uploads/" + res.data.user[0].profilePic);
+//                 setPreview("https://elearning-backend-vh3u.onrender.com/assets/uploads/" + res.data.user[0].profilePic);
 //             }
 
 //         }
@@ -258,7 +258,7 @@ function EpAdmin() {
       setMobile(res.data.user[0].mobile);
       setGender(res.data.user[0].gender);
       if (res.data.user[0].profilePic) {
-        setPreview("http://localhost:3001/assets/uploads/" + res.data.user[0].profilePic);
+        setPreview("https://elearning-backend-vh3u.onrender.com/assets/uploads/" + res.data.user[0].profilePic);
       }
     }
     fetchDetail();

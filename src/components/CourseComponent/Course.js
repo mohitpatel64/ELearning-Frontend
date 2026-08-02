@@ -12,7 +12,7 @@ function Course() {
     const [expanded, setExpanded] = useState({})
     const navigate = useNavigate();
 
-    const SERVER_URL = "http://localhost:3001/assets/uploads/";
+    const SERVER_URL = "https://elearning-backend-vh3u.onrender.com/assets/uploads/";
 
     // Fetch Approved Courses
     const fetchCourseDetail = () => {

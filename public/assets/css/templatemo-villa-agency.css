@@ -434,15 +434,18 @@ Header Style
   z-index: 999;
 }
 
-.header-area .main-nav .nav li:last-child {
+
+
+
+li:last-child {
   padding-right: 0px;
 }
 
 .header-area .main-nav .nav li {
   padding-left: 10px;
   padding-right: 10px;
-  height: 100px;
-  line-height: 100px;
+  height: 50px;
+  line-height: 60px;
 }
 
 
@@ -1781,9 +1784,9 @@ body {
   .properties ul.properties-filter li {
     margin: 5px;
   }
-  .header-area .main-nav .nav li:last-child {
+  /* .header-area .main-nav .nav li:last-child {
     display: none;
-  }
+  } */
 }
 
 @media (max-width: 992px) {
@@ -1885,3 +1888,4 @@ body {
     margin-right: 100px;
   }
 }
+

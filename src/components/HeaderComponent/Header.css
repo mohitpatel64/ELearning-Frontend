@@ -1,0 +1,71 @@
+/* ===========================
+   Header Custom
+=========================== */
+
+.sub-header{
+    padding:10px 0;
+    border-bottom:1px solid #ececec;
+}
+
+.sub-header .info li{
+    font-size:14px;
+    color:#6b7280;
+    font-weight:500;
+}
+
+.sub-header .info li i{
+    color:#f35525;
+    margin-right:8px;
+    font-size:16px;
+}
+
+.sub-header .social-links li{
+    margin-left:10px;
+}
+
+.sub-header .social-links li a{
+    width:34px;
+    height:34px;
+    line-height:34px;
+    border-radius:50%;
+    background:#f3f4f6;
+    color:#f35525;
+    transition:all .3s ease;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.sub-header .social-links li a:hover{
+    background:#f35525;
+    color:#fff;
+    transform:translateY(-2px);
+}
+
+.sub-header .social-links li a i{
+    font-size:15px;
+}
+
+@media(max-width:767px){
+
+    .sub-header{
+        padding:8px 0;
+    }
+
+    .sub-header .info{
+        text-align:center;
+    }
+
+    .sub-header .social-links{
+        text-align:center !important;
+        margin-top:8px;
+    }
+
+    .sub-header .info li{
+        display:block;
+        border:none;
+        margin:5px 0;
+        padding:0;
+    }
+
+}

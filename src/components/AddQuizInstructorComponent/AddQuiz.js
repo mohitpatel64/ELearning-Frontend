@@ -34,7 +34,7 @@ function AddQuiz() {
         try {
 
             await axios.post(
-                "https://elearning-backend-vh3u.onrender.com/course/quiz",
+                "http://localhost:3001/course/quiz",
                 data
             );
 

@@ -7,17 +7,22 @@ import Button from "react-bootstrap/Button";
 function CourseDetailPage() {
 
   const { id } = useParams();
+  console.log("URL ID =", id);
   const navigate = useNavigate();
 
   const [course, setCourse] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false); // ADD
 
-  const SERVER_URL = "https://elearning-backend-vh3u.onrender.com/assets/uploads/";
+  const SERVER_URL = "http://localhost:3001/assets/uploads/";
 
   useEffect(() => {
-    axios.get("https://elearning-backend-vh3u.onrender.com/course/fetch")
+    axios.get("http://localhost:3001/course/fetch")
       .then((res) => {
-        const found = res.data.courseDetail.find(c => c._id === id);
+            console.log("All Courses =", res.data.courseDetail);
+
+        const found = res.data.courseDetail.find(c => c._id ===Number(id));
+            console.log("Found =", found);
+
         setCourse(found);
       });
   }, [id]);
@@ -32,7 +37,7 @@ function CourseDetailPage() {
     const userId = localStorage.getItem("_id");
 
     const { data: order } = await axios.post(
-      "https://elearning-backend-vh3u.onrender.com/enrollment/create-order",
+      "http://localhost:3001/enrollment/create-order",
       { amount: course.price }
     );
     
@@ -51,7 +56,7 @@ function CourseDetailPage() {
             console.log("Payment Response", response);
     
             const res = await axios.post(
-                "https://elearning-backend-vh3u.onrender.com/enrollment/verify-payment",
+                "http://localhost:3001/enrollment/verify-payment",
                 {
                     ...response,
                     userId,
@@ -76,7 +81,7 @@ function CourseDetailPage() {
 
           try {
             await axios.post(
-              "https://elearning-backend-vh3u.onrender.com/enrollment/verify-payment",
+              "http://localhost:3001/enrollment/verify-payment",
               {
                 razorpay_payment_id: "demo_payment",
                 razorpay_order_id: order.id,
@@ -106,7 +111,7 @@ function CourseDetailPage() {
 
       try {
         await axios.post(
-          "https://elearning-backend-vh3u.onrender.com/enrollment/verify-payment",
+          "http://localhost:3001/enrollment/verify-payment",
           {
             razorpay_payment_id: "demo_payment",
             razorpay_order_id: order.id,

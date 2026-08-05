@@ -11,7 +11,7 @@ function InstructorDashboard() {
 
     useEffect(() => {
 
-        axios.get("https://elearning-backend-vh3u.onrender.com/enrollment/instructor", {
+        axios.get("http://localhost:3001/enrollment/instructor", {
             params: {
                 courseId: 1
             }

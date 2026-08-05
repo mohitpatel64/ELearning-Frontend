@@ -83,7 +83,7 @@ function UpdateCourse() {
         formData.append("pdf", file);
 
         await axios.post(
-            "https://elearning-backend-vh3u.onrender.com/course/upload-pdf",
+            "http://localhost:3001/course/upload-pdf",
             formData
         );
 
@@ -141,7 +141,7 @@ function UpdateCourse() {
                                     <div className="thumb-box">
 
                                         <img
-                                            src={`https://elearning-backend-vh3u.onrender.com/assets/uploads/${thumbnailName}`}
+                                            src={`http://localhost:3001/assets/uploads/${thumbnailName}`}
                                             className="course-image"
                                             alt=""
                                         />

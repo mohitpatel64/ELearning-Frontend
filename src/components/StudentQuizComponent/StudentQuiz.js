@@ -13,7 +13,7 @@
 //     useEffect(() => {
 
 //         axios.get(
-//             "https://elearning-backend-vh3u.onrender.com/course/quiz",
+//             "http://localhost:3001/course/quiz",
 //             {
 //                 params: {
 //                     courseId: id
@@ -162,7 +162,7 @@ function StudentQuiz() {
     useEffect(() => {
 
         axios.get(
-            "https://elearning-backend-vh3u.onrender.com/course/quiz",
+            "http://localhost:3001/course/quiz",
             {
                 params: {
                     courseId: id

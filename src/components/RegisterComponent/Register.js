@@ -19,7 +19,7 @@ function Register() {
         const userDetail = { "name": name, "email": email, "password": password, "mobile": mobile, "role": role, "address": address, "city": city, "gender": gender }
 
         //send request to backend using axios
-        axios.post("https://elearning-backend-vh3u.onrender.com/user/save", userDetail).then((res) => {
+        axios.post("http://localhost:3001/user/save", userDetail).then((res) => {
             setOutput("Data Inserted successfully ");
             setMsg('success');
             setName("");

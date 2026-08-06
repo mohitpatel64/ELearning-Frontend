@@ -11,6 +11,7 @@ function Course() {
     const [courseDetail, setCourseDetail] = useState([]);
     const [expanded, setExpanded] = useState({})
     const navigate = useNavigate();
+    const [enrolledCourses, setEnrolledCourses] = useState([]);
 
     const SERVER_URL = "http://localhost:3001/assets/uploads/";
 
@@ -18,7 +19,7 @@ function Course() {
     const fetchCourseDetail = () => {
         axios.get(apiurlcourse + "fetch?courseStatus=approved").then((res) => {
             setCourseDetail(res.data.courseDetail);
-           
+
 
         }).catch((err) => {
             console.log("Error fetching course")
@@ -28,6 +29,7 @@ function Course() {
 
     useEffect(() => {
         fetchCourseDetail();
+        fetchMyCourses();
     }, [])
 
     //toggle read more
@@ -50,6 +52,23 @@ function Course() {
         }
     }
 
+    const fetchMyCourses = () => {
+
+        const userId = localStorage.getItem("_id");
+
+        if (!userId) return;
+
+        axios
+            .get(`http://localhost:3001/enrollment/mycourses?userId=${userId}`)
+            .then((res) => {
+                setEnrolledCourses(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+    };
+
 
     return (
         <>
@@ -64,9 +83,13 @@ function Course() {
                     <div className="row">
                         {
                             courseDetail.length > 0 ? (
-                                courseDetail.map((row) => (
-                                    <div className='col-md-4 mb-4' key={row._id}>
-                                        
+                                courseDetail.map((row) => {
+                                    const isEnrolled = enrolledCourses.some(
+                                        (item) => item.courseId._id == row._id
+                                    )
+                                    return (
+                                        <div className='col-md-4 mb-4' key={row._id}>
+
 
                                             <Card className="shadow h-100" id='card'>
 
@@ -102,21 +125,38 @@ function Course() {
                                                         <strong>Duration:</strong> {row.duration}
                                                     </Card.Text>
 
-                                                    <Button
-                                                        variant="primary"
-                                                        onClick={() => handleEnroll(row._id)}
-                                                        className="w-100"
-                                                    >
-                                                        Enroll Now
-                                                    </Button>
+                                                    {
+                                                        isEnrolled ? (
+
+                                                            <Button
+    className="course-btn enrolled-btn"
+    onClick={() => navigate("/studentmycourse")}
+>
+    <i className="fa fa-check-circle"></i>
+    Enrolled
+</Button>
+
+                                                        ) : (
+
+                                                            <Button
+                                                                className="course-btn enroll-btn"
+                                                                onClick={() => handleEnroll(row._id)}
+                                                                className="w-100"
+                                                            >
+                                                                Enroll Now
+                                                            </Button>
+
+                                                        )
+                                                    }
 
                                                 </Card.Body>
                                             </Card>
-                                    </div>
-                                ))
+                                        </div>
+                                    );
+                                })
                             ) : (
-                <p>No courses available</p>
-              )
+                                <p>No courses available</p>
+                            )
                         }
 
                     </div>

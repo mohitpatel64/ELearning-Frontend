@@ -117,3 +117,27 @@
         margin-bottom:20px;
     }
 }
+
+.course-btn{
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.enroll-btn{
+    background: #ff5a1f;
+    color: #fff;
+}
+
+.enrolled-btn{
+    background: #22c55e !important;
+    border-color: #22c55e !important;
+    color: #fff !important;
+}

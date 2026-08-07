@@ -11,7 +11,10 @@ function Login() {
     const [output, setOutput] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        if (e) {
+        e.preventDefault();
+    }
 
         //send request to backend using axios
         axios.post(apiurluser + "login", { "email": email, "password": password }).then((res) => {
@@ -81,17 +84,20 @@ function Login() {
                                 </div>
                             )}
 
-                            <h2>Welcome Back!</h2>
+                            <h2>
+   <span>Sign</span> In
+</h2>
 
                             <p className="subtitle">
                                 Login to continue your learning journey
                             </p>
 
-                            <form>
+                            <form onSubmit={handleSubmit}>
 
                                 <input
                                     type="email"
-                                    placeholder="Enter your email"
+                                    placeholder="Email"
+                                    className="form-control"
                                     value={email}
                                     onChange={(e) =>
                                         setEmail(e.target.value)
@@ -100,11 +106,13 @@ function Login() {
 
                                 <input
                                     type="password"
-                                    placeholder="Enter your password"
+                                    placeholder="Password"
+                                    className="form-control"
                                     value={password}
                                     onChange={(e) =>
                                         setPassword(e.target.value)
                                     }
+                                    
                                 />
 
                                 <div className="options">
@@ -115,9 +123,8 @@ function Login() {
                                 </div>
 
                                 <button
-                                    type="button"
+                                    type="submit"
                                     className="login-page-btn"
-                                    onClick={handleSubmit}
                                 >
                                     Login
                                 </button>

@@ -1,5 +1,6 @@
 import './App.css';
-import { Routes,Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import Header from './components/HeaderComponent/Header';
 import Nav from './components/NavComponent/Nav';
 import Banner from './components/BannerComponent/Banner';
@@ -36,29 +37,17 @@ import UpdateCourse from './components/UpdateCourseComponent/UpdateCourse';
 import CourseContent from './components/CourseContentComponent/CourseContent';
 
 function App() {
+  const location = useLocation();
+
   return (
     <>
-      {/* <!-- ***** Preloader Start ***** --> */}
-      {/* <div id="js-preloader" class="js-preloader">
-        <div class="preloader-inner">
-          <span class="dot"></span>
-          <div class="dots">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-      </div> */}
-      {/* <!-- ***** Preloader End ***** --> */}
-
-      <Header />      
+      <Header />
 
       <Nav />
 
       <main>
 
-        <Banner />
-
+        {location.pathname === "/" && <Banner />}
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
@@ -81,19 +70,19 @@ function App() {
           <Route path='/addcourse' element={<AddCourse />} />
           <Route path='/managecourse' element={<ManageCourse />} />
           <Route path='/course' element={<Course />} />
-          <Route path='/coursedetail/:id' element={<CourseDetailPage />}/>
-          <Route path="/mycourse" element= {<MyCourse />} />
-          <Route path="/studentmycourse" element= {<StudentMyCourse />} />
-          <Route path="/learn/:id" element= {<StudentLearn />} />
-          <Route path="/courseEditor/:id" element= {<CourseEditor />} />
-          <Route path="/addquiz/:id" element= {<AddQuiz />} />
+          <Route path='/coursedetail/:id' element={<CourseDetailPage />} />
+          <Route path="/mycourse" element={<MyCourse />} />
+          <Route path="/studentmycourse" element={<StudentMyCourse />} />
+          <Route path="/learn/:id" element={<StudentLearn />} />
+          <Route path="/courseEditor/:id" element={<CourseEditor />} />
+          <Route path="/addquiz/:id" element={<AddQuiz />} />
           <Route path="/quiz/:id" element={<StudentQuiz />} />
-          <Route path="/updatecourse/:id" element={<UpdateCourse />}/>
-          <Route path="/coursecontent/:id" element={<CourseContent />}/>
+          <Route path="/updatecourse/:id" element={<UpdateCourse />} />
+          <Route path="/coursecontent/:id" element={<CourseContent />} />
         </Routes>
       </main>
 
-      <Footer /> 
+      <Footer />
     </>
   );
 }

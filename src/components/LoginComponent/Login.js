@@ -2,42 +2,42 @@ import './Login.css';
 import { useState } from 'react';
 import axios from 'axios';
 import { apiurluser } from '../../ApiUrl';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
 
-    const [email,setEmail] = useState('');
-    const [password,setPassword] = useState('');
-    const [output,setOutput] = useState('');
-    const navigate =useNavigate();
-    
-    const handleSubmit=()=>{
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [output, setOutput] = useState('');
+    const navigate = useNavigate();
+
+    const handleSubmit = () => {
 
         //send request to backend using axios
-        axios.post(apiurluser+"login",{"email":email,"password":password}).then((res)=>{
-            let userDetail=res.data.user;
-            localStorage.setItem("token",res.data.token);
-            localStorage.setItem("_id",userDetail._id);
-            localStorage.setItem("name",userDetail.name);
-            localStorage.setItem("email",userDetail.email);
-            localStorage.setItem("mobile",userDetail.mobile);
-            localStorage.setItem("role",userDetail.role);
-            localStorage.setItem("status",userDetail.status);
-            localStorage.setItem("info",userDetail.info);
-            localStorage.setItem("gender",userDetail.gender);
+        axios.post(apiurluser + "login", { "email": email, "password": password }).then((res) => {
+            let userDetail = res.data.user;
+            localStorage.setItem("token", res.data.token);
+            localStorage.setItem("_id", userDetail._id);
+            localStorage.setItem("name", userDetail.name);
+            localStorage.setItem("email", userDetail.email);
+            localStorage.setItem("mobile", userDetail.mobile);
+            localStorage.setItem("role", userDetail.role);
+            localStorage.setItem("status", userDetail.status);
+            localStorage.setItem("info", userDetail.info);
+            localStorage.setItem("gender", userDetail.gender);
 
-            if(userDetail.role==="admin"){
+            if (userDetail.role === "admin") {
                 navigate("/admin")
             }
-            else if(userDetail.role==="student"){
+            else if (userDetail.role === "student") {
                 navigate("/student")
             }
-            else if(userDetail.role==="instructor"){
+            else if (userDetail.role === "instructor") {
                 navigate("/instructor")
 
             }
-            
-        }).catch((err)=>{
+
+        }).catch((err) => {
             // console.log(err);
             setOutput("Login Failed");
         })
@@ -45,42 +45,101 @@ function Login() {
 
     return (
         <>
-         <div class="featured section" >
-                <div class="container">
-                    <div class="row" >
-                        <div class="col-lg-12 col-12 "  id='login-part'>
-                           {output && (
-                            <div className="alert alert-danger">
-                                {output}
-                            </div>
-                          )}
-                            <div class="section-heading">
-                                {/* <h1>Login Here !!!</h1> */}
-                                <h2>
-                                    <i className="fa fa-graduation-cap"></i> Login Here
-                                </h2>
-                                <p style={{color:"#666"}}>
-                                    Access your learning account
-                                    </p>
+            <div className="login-page">
 
-                                <form className='login-form'>
-    
-                                    <div class="mb-3 mt-3">
-                                        <label for="email" class="form-label">Email:</label>
-                                        <input type="email" class="form-control" value={email} placeholder="Enter email" onChange={(e)=>{setEmail(e.target.value)}} />
-                                    </div>
+                    <div className="login-wrapper">
 
-                                    <div class="mb-3">
-                                        <label for="pwd" class="form-label">Password:</label>
-                                        <input type="password" class="form-control" value={password} placeholder="Enter password" onChange={(e)=>{setPassword(e.target.value)}} />
-                                    </div>      
-                                    <button type="button" class="login-button" onClick={handleSubmit}>Login</button>
-                                </form>
-                            </div>
+                        {/* LEFT SIDE */}
+
+                        <div className="left-side">
+                            <h4>E-LEARNING</h4>
+
+                            <h1>
+                                Upgrade your skills.
+                                <br />
+                                <span>Learn smarter.</span>
+                                <br />
+                            </h1>
+
+                            <p>
+                                Join thousands of learners and access our quality courses.
+                            </p>
+                            <img
+                                src="/assets/images/login-img.png"
+                                alt="learning"
+                            />
+
                         </div>
+
+                        {/* RIGHT SIDE */}
+
+                        <div className="right-side">
+
+                            {output && (
+                                <div className="alert alert-danger">
+                                    {output}
+                                </div>
+                            )}
+
+                            <h2>Welcome Back!</h2>
+
+                            <p className="subtitle">
+                                Login to continue your learning journey
+                            </p>
+
+                            <form>
+
+                                <input
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    value={email}
+                                    onChange={(e) =>
+                                        setEmail(e.target.value)
+                                    }
+                                />
+
+                                <input
+                                    type="password"
+                                    placeholder="Enter your password"
+                                    value={password}
+                                    onChange={(e) =>
+                                        setPassword(e.target.value)
+                                    }
+                                />
+
+                                <div className="options">
+                                    <a href="#">
+                                        Forgot Password?
+                                    </a>
+
+                                </div>
+
+                                <button
+                                    type="button"
+                                    className="login-page-btn"
+                                    onClick={handleSubmit}
+                                >
+                                    Login
+                                </button>
+
+                            </form>
+
+                            <p className="signup-text">
+                                Don't have an account?
+
+                                <span
+                                    onClick={() => navigate("/register")}
+                                >
+                                    Sign Up
+                                </span>
+                            </p>
+
+                        </div>
+
                     </div>
-                </div>
+
             </div>
+
         </>
     )
 }

@@ -1,42 +1,251 @@
-.contact-section{
-    margin-top: 10%;
+/* =========================
+   CONTACT SECTION
+========================= */
+
+.contact-section {
+    padding: 80px 30px;
+    background: #f5f7fb;
 }
 
-#map-box .item {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
-    text-align: center;
-    margin-top: 20px;
+.contact-container {
+    max-width: 1250px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
 }
 
-#contact-form{
-    /* background-color: rgb(247, 239, 239); */
-    background-color: #F8FAFC;
 
+/* =========================
+   COMMON CARD
+========================= */
 
+.contact-map-card,
+.contact-form-card {
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
 }
 
-#contact-form .contact-heading{
-    padding: 20px;
-     color:#f35525;
-    font-size:15px;
-    margin-bottom:10px;
-} 
 
-#contact-form h2{
+/* =========================
+   CARD HEADING
+========================= */
+
+.contact-card-heading {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
     margin-bottom: 25px;
 }
 
-.contact-button{
-    background: #f35525;
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 25px;
+.contact-icon {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    background: #fff0eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 23px;
 }
-.contact-button:hover{
-    background: #1e1e1e;
-        transition: 0.3s;
+
+.contact-card-heading h2 {
+    margin: 0 0 5px;
+
+    color: #171717;
+
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.contact-card-heading p {
+    margin: 0;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   MAP
+========================= */
+
+.contact-map {
+    width: 100%;
+    height: 390px;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.contact-form-card form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.contact-input-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+.contact-form-card input,
+.contact-form-card textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: 1px solid #e5e5e5;
+
+    background: #fafafa;
+
+    border-radius: 10px;
+
+    padding: 14px 16px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    color: #171717;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+.contact-form-card input {
+    height: 50px;
+}
+
+.contact-form-card textarea {
+    resize: vertical;
+
+    min-height: 150px;
+}
+
+.contact-form-card input:focus,
+.contact-form-card textarea:focus {
+    border-color: #f35525;
+
+    background: #ffffff;
+
+    box-shadow: 0 0 0 3px rgba(243, 85, 37, 0.08);
+}
+
+.contact-form-card input::placeholder,
+.contact-form-card textarea::placeholder {
+    color: #999;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.contact-form-card button {
+    align-self: flex-start;
+
+    border: none;
+
+    background: #f35525;
+
+    color: #ffffff;
+
+    padding: 13px 25px;
+
+    border-radius: 25px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.contact-form-card button:hover {
+    background: #171717;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-map {
+        height: 350px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .contact-section {
+        padding: 50px 15px;
+    }
+
+    .contact-map-card,
+    .contact-form-card {
+        padding: 20px;
+    }
+
+    .contact-input-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-map {
+        height: 280px;
+    }
+
+    .contact-card-heading h2 {
+        font-size: 20px;
+    }
+
+    .contact-card-heading p {
+        font-size: 13px;
+    }
 }

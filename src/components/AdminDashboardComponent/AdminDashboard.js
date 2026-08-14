@@ -1,6 +1,6 @@
 import './AdminDashboard.css';
 import { useEffect, useState } from "react";
-import { apiurluser,apiurlcourse } from '../../ApiUrl';
+import { apiurluser, apiurlcourse } from '../../ApiUrl';
 import axios from "axios";
 
 function AdminDashboard() {
@@ -11,48 +11,48 @@ function AdminDashboard() {
     const [totalEnrollments, setTotalEnrollments] = useState(0);
     const [totalRevenue, setTotalRevenue] = useState(0);
 
-useEffect(() => {
+    useEffect(() => {
 
-    // Users + Active Students
-    axios.get(apiurluser + "admin-stats")
-        .then((res) => {
-            setTotalUsers(res.data.totalUsers);
-            setActiveStudents(res.data.activeStudents);
-        })
-        .catch((err) => {
-            console.log("User Stats Error:", err);
-        });
+        // Users + Active Students
+        axios.get(apiurluser + "admin-stats")
+            .then((res) => {
+                setTotalUsers(res.data.totalUsers);
+                setActiveStudents(res.data.activeStudents);
+            })
+            .catch((err) => {
+                console.log("User Stats Error:", err);
+            });
 
 
-    // Total Courses
-    axios.get(apiurlcourse + "total-courses")
-        .then((res) => {
-            console.log("Course Response:", res.data);
-            setTotalCourses(res.data.totalCourses);
-        })
-        .catch((err) => {
-            console.log("Course Stats Error:", err);
-        });
+        // Total Courses
+        axios.get(apiurlcourse + "total-courses")
+            .then((res) => {
+                console.log("Course Response:", res.data);
+                setTotalCourses(res.data.totalCourses);
+            })
+            .catch((err) => {
+                console.log("Course Stats Error:", err);
+            });
 
 
         axios.get("http://localhost:3001/enrollment/total-enrollments")
-    .then((res) => {
-        setTotalEnrollments(res.data.totalEnrollments);
-    })
-    .catch((err) => {
-        console.log("Enrollment Stats Error:", err);
-    });
+            .then((res) => {
+                setTotalEnrollments(res.data.totalEnrollments);
+            })
+            .catch((err) => {
+                console.log("Enrollment Stats Error:", err);
+            });
 
 
-    axios.get("http://localhost:3001/enrollment/total-revenue")
-    .then((res) => {
-        setTotalRevenue(res.data.totalRevenue);
-    })
-    .catch((err) => {
-        console.log("Revenue Stats Error:", err);
-    });
+        axios.get("http://localhost:3001/enrollment/total-revenue")
+            .then((res) => {
+                setTotalRevenue(res.data.totalRevenue);
+            })
+            .catch((err) => {
+                console.log("Revenue Stats Error:", err);
+            });
 
-}, []);
+    }, []);
     return (
         <div className="admin-dashboard">
 

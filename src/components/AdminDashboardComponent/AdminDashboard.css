@@ -1,21 +1,83 @@
 .admin-dashboard {
-    min-height: 100vh;
     background: #f5f7fb;
-    padding: 50px 60px;
+    min-height: 100vh;
+    padding: 60px 0;
+    
+    width: 90%;
+    max-width: 1250px;
+    margin: 0 auto;
 }
 
-.admin-dashboard h1 {
-    margin: 0;
-    font-size: 42px;
+
+/* =========================
+   ADMIN HEADING BOX
+========================= */
+
+.admin-page-heading {
+    background: #ffffff;
+    border-radius: 20px;
+
+    padding: 35px 40px;
+
+    margin-bottom: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+.admin-page-heading span {
+    display: block;
+
+    color: #f35525;
+
+    font-size: 12px;
     font-weight: 700;
-    color: #1d1d1d;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
 }
 
-.dashboard-subtitle {
-    margin-top: 8px;
-    margin-bottom: 35px;
+.admin-page-heading h1 {
+    margin: 0;
+
+    font-size: 36px;
+    font-weight: 700;
+
+    color: #171717;
+}
+
+.admin-page-heading h1 strong {
+    color: #f35525;
+}
+
+.admin-page-heading p {
+    margin: 10px 0 0;
+
     color: #777;
-    font-size: 17px;
+
+    font-size: 16px;
+}
+
+
+/* ADMIN ICON */
+
+.admin-heading-icon {
+    width: 90px;
+    height: 90px;
+
+    border-radius: 20px;
+
+    background: #fff0eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 40px;
 }
 
 

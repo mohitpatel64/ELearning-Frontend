@@ -56,10 +56,26 @@ function AdminDashboard() {
     return (
         <div className="admin-dashboard">
 
-            <h1>Admin Dashboard</h1>
-            <p className="dashboard-subtitle">
-                Overview of your e-learning platform
-            </p>
+             {/* ADMIN HEADING */}
+        <div className="admin-page-heading">
+
+            <div>
+                <span>ADMIN PANEL</span>
+
+                <h1>
+                    Manage Your <strong>Learning Platform</strong>
+                </h1>
+
+                <p>
+                    Monitor users, courses, enrollments and platform performance.
+                </p>
+            </div>
+
+            <div className="admin-heading-icon">
+                ⚙️
+            </div>
+
+        </div>
 
             <div className="stats-grid">
 

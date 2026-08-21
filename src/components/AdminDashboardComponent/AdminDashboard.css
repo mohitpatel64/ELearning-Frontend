@@ -229,3 +229,172 @@
         padding: 35px 25px;
     }
 }
+
+
+
+/* =========================
+   CONTACT MESSAGES
+========================= */
+
+.contact-messages-section {
+    background: #fff;
+
+    border-radius: 16px;
+
+    padding: 30px;
+
+    margin-top: 30px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+}
+
+
+/* HEADING */
+
+.contact-messages-heading {
+    margin-bottom: 25px;
+}
+
+.contact-messages-heading span {
+    color: #f35525;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.contact-messages-heading h2 {
+    margin: 7px 0 0;
+
+    font-size: 26px;
+
+    color: #171717;
+}
+
+
+/* MESSAGE CARD */
+
+.contact-message-card {
+    border: 1px solid #eee;
+
+    border-radius: 14px;
+
+    padding: 22px;
+
+    margin-bottom: 15px;
+
+    transition: 0.3s;
+}
+
+.contact-message-card:last-child {
+    margin-bottom: 0;
+}
+
+.contact-message-card:hover {
+    border-color: #f35525;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+
+/* TOP */
+
+.contact-message-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #eee;
+}
+
+.contact-message-email span,
+.contact-message-date span,
+.contact-message-subject span,
+.contact-message-text span {
+    display: block;
+
+    color: #999;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 5px;
+}
+
+.contact-message-email p,
+.contact-message-date p {
+    margin: 0;
+
+    color: #333;
+
+    font-size: 14px;
+}
+
+
+/* SUBJECT */
+
+.contact-message-subject {
+    padding: 15px 0;
+}
+
+.contact-message-subject h3 {
+    margin: 0;
+
+    color: #171717;
+
+    font-size: 17px;
+}
+
+
+/* MESSAGE */
+
+.contact-message-text p {
+    margin: 0;
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* NO MESSAGE */
+
+.no-messages {
+    margin: 0;
+
+    color: #777;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .contact-messages-section {
+        padding: 20px;
+    }
+
+    .contact-message-top {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+}

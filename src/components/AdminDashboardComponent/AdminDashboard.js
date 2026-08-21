@@ -10,6 +10,7 @@ function AdminDashboard() {
     const [totalCourses, setTotalCourses] = useState(0);
     const [totalEnrollments, setTotalEnrollments] = useState(0);
     const [totalRevenue, setTotalRevenue] = useState(0);
+    const [contactMessages, setContactMessages] = useState([]);
 
     useEffect(() => {
 
@@ -51,6 +52,17 @@ function AdminDashboard() {
             .catch((err) => {
                 console.log("Revenue Stats Error:", err);
             });
+
+
+            // Contact Messages
+axios.get("http://localhost:3001/contact/fetch1")
+    .then((res) => {
+        console.log("Contact Messages:", res.data);
+        setContactMessages(res.data);
+    })
+    .catch((err) => {
+        console.log("Contact Fetch Error:", err);
+    });
 
     }, []);
     return (
@@ -119,6 +131,90 @@ function AdminDashboard() {
 
             </div>
 
+            
+
+            {/* CONTACT MESSAGES */}
+
+<div className="contact-messages-section">
+
+    <div className="contact-messages-heading">
+        <div>
+            <span>USER INQUIRIES</span>
+            <h2>Contact Messages</h2>
+        </div>
+    </div>
+
+
+    <div className="contact-messages-list">
+
+        {contactMessages.length === 0 ? (
+
+            <p className="no-messages">
+                No contact messages found.
+            </p>
+
+        ) : (
+
+            contactMessages.map((item) => (
+
+                <div
+                    className="contact-message-card"
+                    key={item._id}
+                >
+
+                    <div className="contact-message-top">
+
+                        <div className="contact-message-email">
+                            <span>Email</span>
+                            <p>{item.email}</p>
+                        </div>
+
+
+                        <div className="contact-message-date">
+                            <span>Date</span>
+                            <p>
+                                {new Date(
+                                    item.createdAt
+                                ).toLocaleDateString()}
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div className="contact-message-subject">
+
+                        <span>Subject</span>
+
+                        <h3>
+                            {item.subject}
+                        </h3>
+
+                    </div>
+
+
+                    <div className="contact-message-text">
+
+                        <span>Message</span>
+
+                        <p>
+                            {item.message}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            ))
+
+        )}
+
+    </div>
+
+</div>
+
+
+
             {/* <div className="reports-box">
 
                 <h2>Reports</h2>
@@ -132,6 +228,7 @@ function AdminDashboard() {
                 </button>
 
             </div> */}
+            
 
         </div>
     );

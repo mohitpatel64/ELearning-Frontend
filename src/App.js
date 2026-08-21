@@ -1,6 +1,7 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
+import { useEffect } from 'react';
 import Header from './components/HeaderComponent/Header';
 import Nav from './components/NavComponent/Nav';
 import Banner from './components/BannerComponent/Banner';
@@ -38,6 +39,10 @@ import CourseContent from './components/CourseContentComponent/CourseContent';
 
 function App() {
   const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location.pathname]);
 
   return (
     <>

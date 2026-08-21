@@ -23,161 +23,209 @@ function InstructorDashboard() {
 
             })
             .catch((err) => {
-
                 console.log(err);
-
             });
 
     }, []);
 
+
     const fetchComments = () => {
 
         axios.get(
-            apiurlcourse + "getcomments?instructorId=" +
+            apiurlcourse +
+            "getcomments?instructorId=" +
             localStorage.getItem("_id")
         )
-
             .then((res) => {
                 setComments(res.data);
             })
-
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                console.log(err);
+            });
 
     };
 
-    useEffect(()=>{
-        fetchComments()
-    },[]);
+
+    useEffect(() => {
+        fetchComments();
+    }, []);
+
+
     return (
 
-        <div className="dashboard-page">
-            <div className="container">
-                <div className="dashboard-header">
+        <section className="instructor-dashboard">
 
-                    <h2>
-                        Instructor Dashboard
-                    </h2>
+            <div className="instructor-container">
 
-                    <p>
-                        Monitor your course performance and student progress.
-                    </p>
+
+                {/* HEADER */}
+
+                <div className="instructor-welcome">
+
+                    <div>
+
+                        <span>INSTRUCTOR DASHBOARD</span>
+
+                        <h1>
+                            Manage Your <strong>Courses</strong> 👨‍🏫
+                        </h1>
+
+                        <p>
+                            Monitor your course performance and student progress.
+                        </p>
+
+                    </div>
+
+
+                    <div className="instructor-welcome-icon">
+                        👨‍🏫
+                    </div>
 
                 </div>
 
-                <div className="row g-4">
-                    <div className="col-md-6">
-                        <div className="dashboard-card">
 
-                            <div className="dashboard-icon">
-                                👨‍🎓
-                            </div>
+                {/* STATS */}
 
-                            <div>
-                                <h5>
-                                    Total Students
-                                </h5>
+                <div className="instructor-stats">
 
-                                <h2>
-                                    {totalStudents}
-                                </h2>
 
-                                <span>
-                                    Enrolled Students
-                                </span>
-                            </div>
+                    <div className="instructor-stat-card">
+
+                        <div className="instructor-stat-icon">
+                            👨‍🎓
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Total Students
+                            </h3>
+
+                            <h2>
+                                {totalStudents}
+                            </h2>
+
+                            <p>
+                                Enrolled Students
+                            </p>
 
                         </div>
 
                     </div>
 
-                    <div className="col-md-6">
 
-                        <div className="dashboard-card">
+                    <div className="instructor-stat-card">
 
-                            <div className="dashboard-icon success">
-                                📈
-                            </div>
+                        <div className="instructor-stat-icon green">
+                            📈
+                        </div>
 
-                            <div>
-                                <h5>
-                                    Completion Rate
-                                </h5>
+                        <div>
 
-                                <h2>
-                                    {completionRate}%
-                                </h2>
+                            <h3>
+                                Completion Rate
+                            </h3>
 
-                                <span>
-                                    Course Completion
-                                </span>
-                            </div>
+                            <h2>
+                                {completionRate}%
+                            </h2>
+
+                            <p>
+                                Course Completion
+                            </p>
 
                         </div>
 
                     </div>
 
-                </div>
-
-            </div>
-
-            <div className="comments-section">
-
-                <h3 className="comments-title">
-                    💬 Course Comments
-                </h3>
-
-                <div className="table-responsive">
-
-                    <table className="table comments-table">
-
-                        <thead>
-                            <tr>
-                                <th>Course Name</th>
-                                <th>Student Name</th>
-                                <th>Comment</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-
-{
-comments.length>0 ?
-
-comments.map((c,index)=>(
-
-<tr key={index}>
-
-<td>{c.courseName}</td>
-
-<td>{c.studentName}</td>
-
-<td>{c.courseComment}</td>
-
-</tr>
-
-))
-
-:
-
-<tr>
-
-<td colSpan="3" className="text-center">
-No Comments Found
-</td>
-
-</tr>
-
-}
-
-</tbody>
-
-                    </table>
 
                 </div>
 
+
+                {/* COMMENTS */}
+
+                <div className="instructor-comments">
+
+                    <div className="instructor-section-heading">
+
+                        <div>
+
+                            <span>STUDENT FEEDBACK</span>
+
+                            <h2>
+                                Course Comments
+                            </h2>
+
+                        </div>
+
+                        <div className="comment-count">
+                            {comments.length}
+                        </div>
+
+                    </div>
+
+
+                    <div className="comments-list">
+
+                        {comments.length > 0 ? (
+
+                            comments.map((c, index) => (
+
+                                <div
+                                    className="comment-card"
+                                    key={index}
+                                >
+
+                                    <div className="comment-avatar">
+                                        👤
+                                    </div>
+
+
+                                    <div className="comment-content">
+
+                                        <div className="comment-top">
+
+                                            <div>
+
+                                                <h3>
+                                                    {c.studentName}
+                                                </h3>
+
+                                                <span>
+                                                    {c.courseName}
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <p>
+                                            {c.courseComment}
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            ))
+
+                        ) : (
+
+                            <div className="no-comments">
+                                💬 No Comments Found
+                            </div>
+
+                        )}
+
+                    </div>
+
+                </div>
+
+
             </div>
 
-        </div>
+        </section>
 
     );
 

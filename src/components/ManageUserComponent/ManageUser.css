@@ -1,49 +1,245 @@
-.manage-table thead th{
-    background:#f35525 !important;
-    color:#fff !important;
-    text-align:center;
-    vertical-align:middle;
+/* ================================
+   MANAGE USER PAGE
+================================ */
+
+.manage-user-page {
+    background: #f4f7fb;
+    min-height: 100vh;
+    padding: 55px 0;
 }
 
-.manage-table td{
-    text-align:center;
-    vertical-align:middle;
+.manage-user-container {
+    width: 90%;
+    max-width: 1500px;
+    margin: auto;
 }
 
-.manage-table tbody tr:hover{
-    background:#fff5f2;
-    transition:.3s;
+
+/* ================================
+   HEADING
+================================ */
+
+.manage-user-heading {
+    margin-bottom: 35px;
 }
 
-.manage-table td:nth-child(3){
-    min-width:220px;
+.manage-user-heading span {
+    display: block;
+    color: #f35525;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
 }
 
-.manage-table td:nth-child(8){
-    min-width:220px;
-    font-size:14px;
+.manage-user-heading h1 {
+    margin: 0;
+    font-size: 44px;
+    font-weight: 700;
+    color: #171717;
 }
 
-.status{
-    cursor:pointer;
-    font-weight:600;
+.manage-user-heading h1 strong {
+    color: #f35525;
 }
 
-.verify{
-    color:green;
+.manage-user-heading p {
+    margin-top: 10px;
+    color: #777;
+    font-size: 17px;
 }
 
-.block{
-    color:orange;
+
+/* ================================
+   TABLE BOX
+================================ */
+
+.user-table-wrapper {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
 }
 
-.delete-btn{
-    color:red;
-    cursor:pointer;
-    font-weight:600;
+
+/* ================================
+   TABLE
+================================ */
+
+.manage-user-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
 }
 
-.delete-btn:hover,
-.status:hover{
-    text-decoration:underline;
+
+/* HEADER */
+
+.manage-user-table thead th {
+    background: #f35525;
+    color: #ffffff;
+    padding: 18px 15px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.manage-user-table thead th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.manage-user-table thead th:last-child {
+    border-top-right-radius: 10px;
+}
+
+
+/* BODY */
+
+.manage-user-table tbody td {
+    padding: 20px 15px;
+    border-bottom: 1px solid #eeeeee;
+    color: #555;
+    font-size: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+/* HOVER */
+
+.manage-user-table tbody tr {
+    transition: 0.25s;
+}
+
+.manage-user-table tbody tr:hover {
+    background: #fff8f5;
+}
+
+
+/* ================================
+   USER NAME
+================================ */
+
+.manage-user-table .user-name {
+    color: #222;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.manage-user-table .user-email {
+    text-align: left;
+    color: #555;
+}
+
+
+/* ================================
+   STATUS BUTTONS
+================================ */
+
+.status-btn {
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.verify-btn {
+    background: #e9f8ef;
+    color: #198754;
+}
+
+.verify-btn:hover {
+    background: #198754;
+    color: #ffffff;
+}
+
+.block-btn {
+    background: #fff3df;
+    color: #f59e0b;
+}
+
+.block-btn:hover {
+    background: #f59e0b;
+    color: #ffffff;
+}
+
+
+/* ================================
+   DELETE
+================================ */
+
+.delete-user-btn {
+    border: none;
+    background: #ffe9ed;
+    color: #dc3545;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.delete-user-btn:hover {
+    background: #dc3545;
+    color: #ffffff;
+}
+
+
+/* ================================
+   NO USER
+================================ */
+
+.no-user {
+    padding: 40px !important;
+    color: #888 !important;
+    font-size: 16px !important;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1100px) {
+
+    .manage-user-container {
+        width: 94%;
+    }
+
+    .user-table-wrapper {
+        padding: 15px;
+    }
+
+    .manage-user-table {
+        min-width: 950px;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .manage-user-page {
+        padding: 35px 0;
+    }
+
+    .manage-user-heading h1 {
+        font-size: 34px;
+    }
+
+    .manage-user-heading p {
+        font-size: 15px;
+    }
+
 }

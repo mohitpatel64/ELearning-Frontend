@@ -1,28 +1,344 @@
-.container #course-part{
-    background: #f1f2f3;
-    border-radius: 30px;
-    box-shadow: 0 0 20px rgba(0,0,0,1);
-    padding-top: 20px;
+/* =========================================
+   ADD COURSE PAGE
+========================================= */
+
+.add-course-page {
+    background: #f5f7fb;
+    min-height: 100vh;
+    padding: 65px 0 80px;
 }
-.course-title{
+
+.add-course-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.add-course-header {
+    margin-bottom: 30px;
+}
+
+.add-course-header span {
+    display: block;
     color: #f35525;
-    font-size: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.add-course-header h1 {
+    margin: 0;
+    color: #171717;
+    font-size: 44px;
     font-weight: 700;
 }
 
-.course-subtitle{
-    color: #666;
-    margin-bottom: 30px;
-}
-.course-btn{
-    background: #f35525;
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 30px;
-    font-size: 18px;
+.add-course-header h1 strong {
+    color: #f35525;
 }
 
-.course-btn:hover{
-    background: #1e1e1e;
+.add-course-header p {
+    margin: 10px 0 0;
+    color: #777;
+    font-size: 16px;
+}
+
+
+/* =========================================
+   FORM CARD
+========================================= */
+
+.add-course-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================
+   FORM HEADING
+========================================= */
+
+.form-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.form-heading-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 14px;
+    background: #fff0eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+}
+
+.form-card-heading h2 {
+    margin: 0;
+    font-size: 23px;
+    color: #222;
+}
+
+.form-card-heading p {
+    margin: 5px 0 0;
+    color: #888;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   ALERT
+========================================= */
+
+.course-alert {
+    padding: 13px 16px;
+    border-radius: 8px;
+    margin-bottom: 22px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.course-alert.success {
+    background: #e8f8ef;
+    color: #16834a;
+}
+
+.course-alert.danger {
+    background: #ffe8e8;
+    color: #d93636;
+}
+
+
+/* =========================================
+   FORM ROW
+========================================= */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+
+/* =========================================
+   FORM GROUP
+========================================= */
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 9px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid #e1e4e8;
+    border-radius: 9px;
+    padding: 14px 15px;
+    font-size: 15px;
+    color: #333;
+    outline: none;
+    background: #fff;
+    transition: 0.2s;
+    box-sizing: border-box;
+}
+
+.form-group input {
+    height: 50px;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #f35525;
+    box-shadow: 0 0 0 3px rgba(243, 85, 37, 0.08);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #aaa;
+}
+
+
+/* =========================================
+   PRICE
+========================================= */
+
+.price-input {
+    position: relative;
+}
+
+.price-input span {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #f35525;
+    font-size: 17px;
+    font-weight: 700;
+    z-index: 1;
+}
+
+.price-input input {
+    padding-left: 35px;
+}
+
+
+/* =========================================
+   FILE UPLOAD
+========================================= */
+
+.file-upload {
+    position: relative;
+}
+
+.file-upload input {
+    display: none;
+}
+
+.file-upload label {
+    height: 50px;
+    border: 1px dashed #d8dce1;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.file-upload label:hover {
+    border-color: #f35525;
+    background: #fffaf8;
+}
+
+.file-upload label > span {
+    font-size: 22px;
+}
+
+.file-upload label strong {
+    display: block;
+    color: #444;
+    font-size: 13px;
+}
+
+.file-upload label small {
+    display: block;
+    color: #999;
+    font-size: 11px;
+    margin-top: 2px;
+}
+
+.selected-file {
+    margin: 7px 0 0;
+    color: #777;
+    font-size: 12px;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.cancel-btn,
+.create-course-btn {
+    height: 45px;
+    padding: 0 24px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.cancel-btn {
+    background: #f1f2f4;
+    color: #555;
+    border: none;
+}
+
+.create-course-btn {
+    background: #f35525;
+    color: #fff;
+    border: none;
+}
+
+.cancel-btn:hover {
+    background: #e5e6e8;
+}
+
+.create-course-btn:hover {
+    background: #e4481b;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .add-course-page {
+        padding: 40px 0 60px;
+    }
+
+    .add-course-container {
+        width: 94%;
+    }
+
+    .add-course-header h1 {
+        font-size: 35px;
+    }
+
+    .add-course-card {
+        padding: 25px 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .form-actions {
+        justify-content: stretch;
+    }
+
+    .cancel-btn,
+    .create-course-btn {
+        flex: 1;
+    }
 }

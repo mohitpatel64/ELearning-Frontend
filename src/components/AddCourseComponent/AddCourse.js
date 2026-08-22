@@ -1,114 +1,299 @@
 import './AddCourse.css';
 import { useState } from 'react';
-import {apiurlcourse} from '../../ApiUrl';
+import { apiurlcourse } from '../../ApiUrl';
 import axios from 'axios';
 
-
 function AddCourse() {
+
     const [title, setTitle] = useState('');
     const [price, setPrice] = useState('');
-    const [description, setDescription] = useState('')
+    const [description, setDescription] = useState('');
     const [duration, setDuration] = useState('');
     const [file, setFile] = useState('');
-    const [output,setOutput]=useState('');
-    const [msg,setMsg] = useState('')
+    const [output, setOutput] = useState('');
+    const [msg, setMsg] = useState('');
 
     const instructorid = localStorage.getItem('_id');
 
-    const handleImage = (e)=>{
-        const file = e.target.files[0];
-        setFile(file);
-    }
+    const handleImage = (e) => {
+        const selectedFile = e.target.files[0];
+        setFile(selectedFile);
+    };
 
-    const handleSubmit= async () => {
+    const handleSubmit = async () => {
 
         const formData = new FormData();
-        formData.append("title",title);
-        formData.append("price",price);
-        formData.append("description",description);
-        formData.append("duration",duration);
-        formData.append("instructorid",instructorid);
-        formData.append("thumbnail",file);
 
-        try{
-        //send request to backend using axios
-        await axios.post(
-            apiurlcourse+"save",formData);
+        formData.append("title", title);
+        formData.append("price", price);
+        formData.append("description", description);
+        formData.append("duration", duration);
+        formData.append("instructorid", instructorid);
+        formData.append("thumbnail", file);
 
-            setOutput("Course Added successfully ");
-            setMsg('success')
+        try {
+
+            await axios.post(
+                apiurlcourse + "save",
+                formData
+            );
+
+            setOutput("Course added successfully");
+            setMsg("success");
+
             setTitle("");
             setPrice("");
             setDescription("");
             setDuration("");
-            setFile("")
-        }
-        catch (err){  
-            //  console.log(error)   
-            setOutput("Course Not Added");
-            setMsg('danger');
+            setFile("");
+
+        } catch (err) {
+
+            setOutput("Course not added");
+            setMsg("danger");
+
             setTitle("");
             setPrice("");
             setDescription("");
             setDuration("");
             setFile("");
         }
-    }
+    };
 
     return (
-        <>
-            <div class="featured section" >
-                <div class="container">
-                    <div class="row" >
-                        <div class="col-lg-12 col-12" id='course-part'>
-                            {output &&
-                                    <div className={`alert alert-${msg}`}>
-                                        {output}
-                                    </div>
-                                }                        
-                            <div class="section-heading">
-                                <h1 className="course-title">
-                                    <i className="fa fa-book me-2"></i> Add Course !!!
-                                </h1>
-                                <p className="course-subtitle">
-                                    Add a new course for students.
-                                </p>
 
-                                <form>
-                                    <div class="mb-3 mt-3">
-                                        <label for="title" class="form-label">Title:</label>
-                                        <input type="text" class="form-control" value={title} placeholder="Enter Course Name" onChange={(e) => { setTitle(e.target.value) }} />
-                                    </div>
-                                    <div class="mb-3 mt-3">
-                                        <label for="price" class="form-label">Price:</label>
-                                        <input type="number" class="form-control" value={price} placeholder="Enter Price" onChange={(e) => { setPrice(e.target.value) }} />
-                                    </div>
-                                   
-                                    <div class="mb-3 mt-3">
-                                        <label for="description" class="form-label">Description:</label>
-                                        <textarea value={description} placeholder='Enter description' onChange={(e) => { setDescription(e.target.value) }} class="form-control" ></textarea>
-                                    </div>
+        <section className="add-course-page">
 
-                                     <div class="mb-3 mt-3">
-                                        <label for="cd" class="form-label">Course Duration:</label>
-                                        <input type="text" class="form-control" value={duration} placeholder="Enter duration" onChange={(e) => { setDuration(e.target.value) }} />
-                                    </div>
+            <div className="add-course-container">
 
-                                    <div className="mb-3 mt-3">
-                                        <label className="form-label">Course Image:</label>
-                                        <input type="file" className="form-control" onChange={handleImage} />
-                                    </div>
-                                    
+                {/* PAGE HEADER */}
 
-                                    <button type="button" class="course-btn" onClick={handleSubmit}>Add Course</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                <div className="add-course-header">
+
+                    <span>INSTRUCTOR PANEL</span>
+
+                    <h1>
+                        Create New <strong>Course</strong>
+                    </h1>
+
+                    <p>
+                        Add a new course and start teaching your students.
+                    </p>
+
                 </div>
+
+
+                {/* FORM CARD */}
+
+                <div className="add-course-card">
+
+                    <div className="form-card-heading">
+
+                        <div className="form-heading-icon">
+                            📚
+                        </div>
+
+                        <div>
+                            <h2>Course Information</h2>
+
+                            <p>
+                                Enter the details of your course below.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    {/* MESSAGE */}
+
+                    {output && (
+
+                        <div className={`course-alert ${msg}`}>
+                            {output}
+                        </div>
+
+                    )}
+
+
+                    <form>
+
+
+                        {/* TITLE + PRICE */}
+
+                        <div className="form-row">
+
+                            <div className="form-group">
+
+                                <label>
+                                    Course Title
+                                </label>
+
+                                <input
+                                    type="text"
+                                    value={title}
+                                    placeholder="Enter course name"
+                                    onChange={(e) =>
+                                        setTitle(e.target.value)
+                                    }
+                                />
+
+                            </div>
+
+
+                            <div className="form-group">
+
+                                <label>
+                                    Price
+                                </label>
+
+                                <div className="price-input">
+
+                                    <span>₹</span>
+
+                                    <input
+                                        type="number"
+                                        value={price}
+                                        placeholder="Enter course price"
+                                        onChange={(e) =>
+                                            setPrice(e.target.value)
+                                        }
+                                    />
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        {/* DESCRIPTION */}
+
+                        <div className="form-group">
+
+                            <label>
+                                Course Description
+                            </label>
+
+                            <textarea
+                                value={description}
+                                placeholder="Write a short description about your course..."
+                                onChange={(e) =>
+                                    setDescription(e.target.value)
+                                }
+                            ></textarea>
+
+                        </div>
+
+
+                        {/* DURATION + IMAGE */}
+
+                        <div className="form-row">
+
+                            <div className="form-group">
+
+                                <label>
+                                    Course Duration
+                                </label>
+
+                                <input
+                                    type="text"
+                                    value={duration}
+                                    placeholder="Example: 6 Months"
+                                    onChange={(e) =>
+                                        setDuration(e.target.value)
+                                    }
+                                />
+
+                            </div>
+
+
+                            <div className="form-group">
+
+                                <label>
+                                    Course Thumbnail
+                                </label>
+
+                                <div className="file-upload">
+
+                                    <input
+                                        type="file"
+                                        id="course-image"
+                                        onChange={handleImage}
+                                    />
+
+                                    <label htmlFor="course-image">
+
+                                        <span>
+                                            📷
+                                        </span>
+
+                                        <div>
+
+                                            <strong>
+                                                Choose Course Image
+                                            </strong>
+
+                                            <small>
+                                                JPG, PNG or JPEG
+                                            </small>
+
+                                        </div>
+
+                                    </label>
+
+                                </div>
+
+                                {file && (
+
+                                    <p className="selected-file">
+                                        Selected: {file.name}
+                                    </p>
+
+                                )}
+
+                            </div>
+
+                        </div>
+
+
+                        {/* BUTTONS */}
+
+                        <div className="form-actions">
+
+                            <button
+                                type="button"
+                                className="cancel-btn"
+                                onClick={() => {
+                                    setTitle("");
+                                    setPrice("");
+                                    setDescription("");
+                                    setDuration("");
+                                    setFile("");
+                                    setOutput("");
+                                }}
+                            >
+                                Clear
+                            </button>
+
+                            <button
+                                type="button"
+                                className="create-course-btn"
+                                onClick={handleSubmit}
+                            >
+                                Create Course →
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
             </div>
-        </>
-    )
+
+        </section>
+
+    );
 }
 
 export default AddCourse;

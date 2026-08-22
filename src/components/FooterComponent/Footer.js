@@ -509,14 +509,6 @@ function Footer() {
                     </Link>
                   </li>
 
-                  <li>
-                    <Link to="/managecourse">
-                      Manage Courses
-                    </Link>
-                  </li>
-
-
-
                 </ul>
 
               </div>

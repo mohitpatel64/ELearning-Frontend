@@ -100,10 +100,22 @@
 .manage-user-table tbody td {
     padding: 20px 15px;
     border-bottom: 1px solid #eeeeee;
+    border-right: 1px solid #eeeeee;
     color: #555;
     font-size: 15px;
     text-align: center;
     vertical-align: middle;
+}
+
+/* Header column lines */
+.manage-user-table thead th {
+    border-right: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* Last column ki right line remove */
+.manage-user-table thead th:last-child,
+.manage-user-table tbody td:last-child {
+    border-right: none;
 }
 
 

@@ -1,118 +1,3 @@
-// import './ManageInstructor.css';
-// import { useState, useEffect } from 'react';
-// import axios from 'axios';
-// import { apiurluser } from '../../ApiUrl';
-
-// function ManageInstructor() {
-
-//     const [userDetail, setUserDetail] = useState([]);
-//     const [output, setOutput] = useState([])
-
-//     useEffect(() => {
-//         axios.get(apiurluser + "fetch?role=pending_instructor").then((res) => {
-//             // console.log(res.data.user);
-//             setUserDetail(res.data.user);
-//         }).catch((err) => {
-//             console.log(err);
-//         })
-
-
-//     }, [])
-
-//     const updateInstructor = (s, _id) => {
-//         if (s == 'approve') {
-//             axios.patch(apiurluser + "update?_id=" + _id, { role: "instructor", status: 1 }).then((res) => {
-//                 alert("instructor approve successfully")
-//             })
-//         }
-//         else {
-//             axios.patch(apiurluser + "update?_id=" + _id, { role: "reject_instructor", status: 0 }).then((res) => {
-//                 alert("instructor Rejected ")
-//             })
-//         }
-
-
-
-//     }
-//     return (
-//         <>
-//             <div class="featured section" id='manage-section'>
-//                 <div class="container">
-//                     <div class="row">
-//                         <div class="col-lg-12 col-12">
-//                             <div class="section-heading">
-//                                 <h1 className='mb-3'>Manage User Details !!!</h1>
-//                                 <table className="table table-bordered">
-
-
-//                                     <tr>
-//                                         <th>ResNo</th>
-//                                         <th>Name</th>
-//                                         <th>Email</th>
-//                                         <th>mobile</th>
-//                                         <th>Address</th>
-//                                         <th>City</th>
-//                                         <th>Gender</th>
-//                                         <th>Info</th>
-//                                         <th>Action</th>
-//                                     </tr>
-//                                     {
-//                                         userDetail.map((row) => (
-//                                             <tr>
-//                                                 <td>{row._id}</td>
-//                                                 <td>{row.name}</td>
-//                                                 <td>{row.email}</td>
-//                                                 <td>{row.mobile}</td>
-//                                                 <td>{row.address}</td>
-//                                                 <td>{row.city}</td>
-//                                                 <td>{row.gender}</td>
-//                                                 <td>{row.info}</td>
-//                                                 <td>
-//                                                     <button className="btn btn-success btn-sm mb-2 w-100" style=
-//                                                         {{ backgroundColor: "#198754", color: "#fff", borderColor: "#198754" }}
-//                                                         onClick={() => { updateInstructor("approve", row._id) }}
-//                                                     >Approve
-//                                                     </button>
-//                                                     <button className="btn btn-danger btn-sm w-100" style=
-//                                                         {{ backgroundColor: "#dc3545", color: "#fff", borderColor: "#dc3545" }}
-
-//                                                         onClick={() => updateInstructor("reject", row._id)}
-//                                                     >Reject
-//                                                     </button>
-//                                                 </td>
-
-
-//                                             </tr>
-//                                         ))
-//                                     }
-//                                 </table>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//         </>
-//     )
-// }
-// export default ManageInstructor;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ======================================================================================================================================
-
-
 import './ManageInstructor.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -135,6 +20,7 @@ function ManageInstructor() {
 
     }, []);
 
+
     const updateInstructor = (s, _id) => {
 
         if (s === "approve") {
@@ -145,10 +31,18 @@ function ManageInstructor() {
                     role: "instructor",
                     status: 1
                 }
-            ).then(() => {
+            )
+            .then(() => {
 
                 alert("Instructor Approved Successfully");
 
+                setUserDetail(prev =>
+                    prev.filter(user => user._id !== _id)
+                );
+
+            })
+            .catch((err) => {
+                console.log(err);
             });
 
         }
@@ -161,134 +55,184 @@ function ManageInstructor() {
                     role: "reject_instructor",
                     status: 0
                 }
-            ).then(() => {
+            )
+            .then(() => {
 
                 alert("Instructor Rejected Successfully");
 
+                setUserDetail(prev =>
+                    prev.filter(user => user._id !== _id)
+                );
+
+            })
+            .catch((err) => {
+                console.log(err);
             });
 
         }
 
     };
 
+
+    const formatDate = (date) => {
+
+        if (!date) return "-";
+
+        return new Date(date).toLocaleDateString("en-IN", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric"
+        });
+
+    };
+
+
     return (
-        <>
-            <div className="featured section" id="manage-section">
 
-                <div className="container">
+        <div className="manage-instructor-page">
 
-                    <div className="row">
+            <div className="manage-instructor-container">
 
-                        <div className="col-lg-12">
+                {/* HEADING */}
 
-                            <div className="section-heading">
+                <div className="manage-instructor-heading">
 
-                                <h1 className="mb-4">
-                                    Manage Instructor Details !!!
-                                </h1>
+                    <span>INSTRUCTOR MANAGEMENT</span>
 
-                                <div className="table-responsive">
+                    <h1>
+                        Manage <strong>Instructors</strong>
+                    </h1>
 
-                                    <table className="table table-bordered table-hover manage-table">
+                    <p>
+                        Review and manage instructor registration requests.
+                    </p>
 
-                                        <thead>
+                </div>
 
-                                            <tr>
 
-                                                <th>ResNo</th>
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Mobile</th>
-                                                <th>Address</th>
-                                                <th>City</th>
-                                                <th>Gender</th>
-                                                <th>Info</th>
-                                                <th>Action</th>
+                {/* TABLE */}
 
-                                            </tr>
+                <div className="instructor-table-wrapper">
 
-                                        </thead>
+                    <div className="table-responsive">
 
-                                        <tbody>
+                        <table className="manage-instructor-table">
 
-                                            {
+                            <thead>
 
-                                                userDetail.length > 0 ?
+                                <tr>
 
-                                                    userDetail.map((row) => (
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Mobile</th>
+                                    <th>City</th>
+                                    <th>Gender</th>
+                                    <th>Joined Date</th>
+                                    <th>Action</th>
 
-                                                        <tr key={row._id}>
+                                </tr>
 
-                                                            <td>{row._id}</td>
+                            </thead>
 
-                                                            <td>{row.name}</td>
 
-                                                            <td>{row.email}</td>
+                            <tbody>
 
-                                                            <td>{row.mobile}</td>
+                                {userDetail.length > 0 ? (
 
-                                                            <td>{row.address}</td>
+                                    userDetail.map((row) => (
 
-                                                            <td>{row.city}</td>
+                                        <tr key={row._id}>
 
-                                                            <td>{row.gender}</td>
+                                            <td className="instructor-name">
+                                                {row.name}
+                                            </td>
 
-                                                            <td>{row.info}</td>
+                                            <td className="instructor-email">
+                                                {row.email}
+                                            </td>
 
-                                                            <td>
+                                            <td>
+                                                {row.mobile || "-"}
+                                            </td>
 
-                                                                <button
-                                                                    className="btn btn-success btn-sm mb-2 w-100"
-                                                                    onClick={() => updateInstructor("approve", row._id)}
-                                                                >
-                                                                    Approve
-                                                                </button>
+                                            <td>
+                                                {row.city || "-"}
+                                            </td>
 
-                                                                <button
-                                                                    className="btn btn-danger btn-sm w-100"
-                                                                    onClick={() => updateInstructor("reject", row._id)}
-                                                                >
-                                                                    Reject
-                                                                </button>
+                                            <td>
+                                                {row.gender || "-"}
+                                            </td>
 
-                                                            </td>
+                                            <td>
+                                                {formatDate(row.info)}
+                                            </td>
 
-                                                        </tr>
+                                            <td>
 
-                                                    ))
+                                                <div className="instructor-actions">
 
-                                                    :
+                                                    <button
+                                                        className="approve-btn"
+                                                        onClick={() =>
+                                                            updateInstructor(
+                                                                "approve",
+                                                                row._id
+                                                            )
+                                                        }
+                                                    >
+                                                        ✓ Approve
+                                                    </button>
 
-                                                    <tr>
 
-                                                        <td
-                                                            colSpan="9"
-                                                            className="text-center text-danger"
-                                                        >
-                                                            No Pending Instructor Found
-                                                        </td>
+                                                    <button
+                                                        className="reject-btn"
+                                                        onClick={() =>
+                                                            updateInstructor(
+                                                                "reject",
+                                                                row._id
+                                                            )
+                                                        }
+                                                    >
+                                                        ✕ Reject
+                                                    </button>
 
-                                                    </tr>
+                                                </div>
 
-                                            }
+                                            </td>
 
-                                        </tbody>
+                                        </tr>
 
-                                    </table>
+                                    ))
 
-                                </div>
+                                ) : (
 
-                            </div>
+                                    <tr>
 
-                        </div>
+                                        <td
+                                            colSpan="7"
+                                            className="no-instructor"
+                                        >
+                                            No Pending Instructor Found
+                                        </td>
+
+                                    </tr>
+
+                                )}
+
+                            </tbody>
+
+                        </table>
 
                     </div>
 
                 </div>
 
             </div>
-        </>
+
+        </div>
+
     );
+
 }
 
 export default ManageInstructor;
